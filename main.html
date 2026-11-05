@@ -1,0 +1,84 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ecole Globale - Enquiry Form</title>
+
+  <!-- Linking CSS file -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <main class="enquiry-card">
+
+    <h1>ENQUIRE NOW</h1>
+
+    <form id="enquiryForm">
+
+      <div class="form-group">
+        <input
+          type="text"
+          id="name"
+          name="name"
+          placeholder="Name"
+          autocomplete="name"
+          required
+        >
+      </div>
+
+      <div class="form-group">
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="Email"
+          autocomplete="email"
+          required
+        >
+      </div>
+
+      <div class="form-group">
+        <input
+          type="tel"
+          id="phone"
+          name="phone"
+          placeholder="Telephone"
+          autocomplete="tel"
+          required
+        >
+      </div>
+
+      <button class="submit-btn" type="submit">
+        SUBMIT
+      </button>
+
+      <p class="form-message" id="formMessage" role="status">
+        Thank you! Your demo form has been submitted.
+      </p>
+
+    </form>
+
+  </main>
+
+  <script>
+    const enquiryForm = document.getElementById("enquiryForm");
+    const formMessage = document.getElementById("formMessage");
+
+    enquiryForm.addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      if (!enquiryForm.checkValidity()) {
+        enquiryForm.reportValidity();
+        return;
+      }
+
+      formMessage.classList.add("visible");
+      enquiryForm.reset();
+    });
+  </script>
+
+</body>
+</html>
